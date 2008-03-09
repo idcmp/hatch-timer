@@ -1,0 +1,31 @@
+#summary Getting Started with Hatch (with Maven2)
+#labels Featured,Phase-Implementation
+
+= Introduction =
+
+Hatch is very easy to get going into your own projects.  This page will walk you through the initial steps of getting it going.  Start here if you want to try Hatch out for your own projects.  I assume you have a working application already that you want to try this on.
+
+= Details =
+
+We'll get you to include hatch in your project, update your code, then we'll see the results!  
+
+== Maven pom.xml ==
+
+First start by adding our maven repository to your project.  Add to your pom.xml:
+
+{{{
+  <repositories>
+    <repository>
+      <id>hatch-maven2-repo</id>
+      <name>Hatch: Maven Repository on Google Code</name>
+      <url>http://hatch-timer.googlecode.com/svn/repo</url>
+    </repository>
+  </repositories>
+}}}
+
+
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
