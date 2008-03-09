@@ -7,11 +7,33 @@
   <packaging>pom</packaging>
   <name>Hatch: Parent Module</name>
   <description>A stacked performance monitor.</description>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <connection>scm:svn:http://hatch-timer.googlecom.com/svn</connection>
+    <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn</developerConnection>
+    <tag>HEAD</tag>
+    <url>http://code.google.com/p/hatch-timer/source/browse</url>
+  </scm>
+  <distributionManagement>
+    <downloadUrl>http://hatch-timer.googlecode.com/svn/repo/</downloadUrl>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>hatch-timer-repo</id>
+      <name>GoogleCode Hatch Repository</name>
+      <url>svn:https://hatch-timer.googlecode.com/svn/repo/</url>
+    </repository>
+  </distributionManagement>
   <modules>
     <module>hatch-common</module>
     <module>hatch-core</module>
-    <module>hatch-log4j</module>
     <module>hatch-null</module>
+    <module>hatch-log4j</module>
   </modules>
   <developers>
     <developer>
