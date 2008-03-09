@@ -71,7 +71,7 @@ We'll ignore exception handling for our first cut:
   }
 }}}
 
-Add similar push/pop calls in {{{validateRequest}}} {{{doFirstBusinessThing}}} and {{{doLastBusinessThing}}}.
+You want to add similar calls in {{{validateRequest}}} {{{doFirstBusinessThing}}} and {{{doLastBusinessThing}}} too.  You can use {{{TimerStackUtil.push()}}} instead in those classes.
 
 That's it.  No really.
 
@@ -81,9 +81,9 @@ Compile and start your project.  When a call to {{{businessMethod}}} completes, 
 
 {{{
   [160ms] businessMethod
-   [50ms] validateRequest
-   [50ms] doFirstBusinessThing
-   [50ms] doLastBusinessThing
+   [80ms] validateRequest
+   [20ms] doFirstBusinessThing
+   [30ms] doLastBusinessThing
 }}}
 
 In the above example,  you may notice these values do not sum up correctly. This means that 10ms are spent in {{{businessMethod}}} itself.
