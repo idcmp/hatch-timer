@@ -21,13 +21,18 @@
     <url>http://code.google.com/p/hatch-timer/source/browse</url>
   </scm>
   <distributionManagement>
-    <downloadUrl>http://hatch-timer.googlecode.com/svn/repo/</downloadUrl>
     <repository>
-      <uniqueVersion>false</uniqueVersion>
       <id>hatch-timer-repo</id>
       <name>GoogleCode Hatch Repository</name>
-      <url>svn:https://hatch-timer.googlecode.com/svn/repo/</url>
+      <url>svn:https://hatch-timer.googlecode.com/svn/repo</url>
+      <uniqueVersion>false</uniqueVersion>
     </repository>
+    <snapshotRepository>
+      <id>hatch-timer-repo</id>
+      <name>GoogleCode Hatch Repository</name>
+      <url>svn:https://hatch-timer.googlecode.com/svn/repo</url>
+      <uniqueVersion>false</uniqueVersion>
+    </snapshotRepository>
   </distributionManagement>
   <modules>
     <module>hatch-common</module>
@@ -52,6 +57,13 @@
         </configuration>
       </plugin>
     </plugins>
+    <extensions>
+      <extension>
+        <groupId>org.jvnet.wagon-svn</groupId>
+        <artifactId>wagon-svn</artifactId>
+        <version>1.8</version>
+      </extension>
+    </extensions>
   </build>
   <dependencies>
     <dependency>
