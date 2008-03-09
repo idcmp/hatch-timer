@@ -1,0 +1,16 @@
+<projectDescription>
+  <name>hatch-log4j</name>
+  <comment>Hatch: Log4J Logger</comment>
+  <projects>
+    <project>hatch-core</project>
+    <project>hatch-common</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
