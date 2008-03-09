@@ -3,11 +3,11 @@
 
 = Introduction =
 
-Hatch is very easy to get going into your own projects.  This page will walk you through the initial steps of getting it going.  Start here if you want to try Hatch out for your own projects.  I assume you have a working application already that you want to try this on.
+Hatch is very easy to use in your projects.  This page will walk you through the initial steps of getting it going.  Start here if you want to try Hatch out for the first time.
 
 = Details =
 
-We'll get you to include hatch in your project, update your code, then we'll see the results!  
+In a few moments, you'll be up and running.  First you'll need to include hatch in your project, then update your code, and then see the results!  
 
 == Maven ==
 
@@ -15,6 +15,7 @@ First start by adding our maven repository to your project.  Add to your pom.xml
 
 {{{
   <repositories>
+    <!-- This repo is used by org.linuxstuff.hatch.* -->
     <repository>
       <id>hatch-maven2-repo</id>
       <name>Hatch: Maven Repository on Google Code</name>
@@ -58,7 +59,7 @@ So you've found some code:
 
 ===After===
 
-We'll ignore exception handling for our first cut:
+We'll ignore exception handling to get you started:
 
 {{{
   public void businessMethod(BusinessBean bizBean) {
@@ -71,23 +72,25 @@ We'll ignore exception handling for our first cut:
   }
 }}}
 
-You want to add similar calls in {{{validateRequest}}} {{{doFirstBusinessThing}}} and {{{doLastBusinessThing}}} too.  You can use {{{TimerStackUtil.push()}}} instead in those classes.
+Add similar calls in {{{validateRequest}}} {{{doFirstBusinessThing}}} and {{{doLastBusinessThing}}} too.  You can use {{{TimerStackUtil.push()}}} instead in those classes.  The strings you use are up to you.
 
-That's it.  No really.
+That's it.
 
 == Running ==
 
-Compile and start your project.  When a call to {{{businessMethod}}} completes, you will see:
+Compile and start your project.  When a call to {{{businessMethod}}} completes, on {{{System.out}}} you will see:
 
 {{{
   [160ms] businessMethod
    [80ms] validateRequest
-   [20ms] doFirstBusinessThing
-   [30ms] doLastBusinessThing
+   [50ms] doFirstBusinessThing
+   [20ms] doLastBusinessThing
 }}}
 
-In the above example,  you may notice these values do not sum up correctly. This means that 10ms are spent in {{{businessMethod}}} itself.
+Sure takes a long time to {{{validateRequest}}}.
+
+You may notice these values do not sum up correctly. This means that 10ms are spent in {{{businessMethod}}} itself.
 
 = Conclusion =
 
-I know, that was pretty simple, but you now have a basic understanding of how to use Hatch.  If this seems interesting to you, see the DetailedIntroduction for more details.
+I know that was pretty simple, but you now have a basic understanding of how to use Hatch.  If this seems interesting to you, see the DetailedIntroduction for more details and learn about how to use it on production code.
