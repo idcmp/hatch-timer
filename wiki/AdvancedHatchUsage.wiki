@@ -30,7 +30,7 @@ Hatch logs to {{{System.out}}} out of the box.  This is the {{{BasicMetricsLogge
 
 Loggers can be changed globally or per-stack (just like how {{{enableAndPush}}} turns on tracing).
 
-To logger globally:
+To log globally:
 
 {{{
      TimerStackUtil.setMetricsLogger(BasicMetricsLogger.LOGGER);
