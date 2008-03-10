@@ -74,7 +74,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <repositories>
     <!-- Repository for wagon-svn -->
     <repository>
@@ -83,5 +82,4 @@
       <url>http://download.java.net/maven/2</url>
     </repository>
   </repositories>
-
 </project>
