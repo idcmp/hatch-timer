@@ -103,7 +103,7 @@ You saw an example of this in the GettingStarted page.  Using {{{enableAndPush}}
       }
 }}}
 
-Generally speaking you should *not* use {{{enableAndPush}}} anywhere except in methods that handle external requests (session beans, etc..). There's no harm in calling it multiple times.
+Generally speaking you should *not* use {{{enableAndPush}}} anywhere except in methods that handle external requests (session beans, etc..). Liberal use of it instead of push will reduce the value of processing by request, and will lead someone to eventually turn profiling off.
 
 = Disabling Hatch at Compile Time =
 
@@ -122,6 +122,8 @@ At some point, your coworkers may suspect that Hatch is causing their code to be
 }}}
 
 This replaces TimerStackUtil with an empty version that does nothing! *WARNING* Do not deploy code with *hatch-null*.  It cannot co-exist with *hatch-core* and if other projects in your classpath use *hatch-core*, you will have both put on your classpath.  
+
+Also, if you are using a custom metrics logger (explained later), you may find you cannot switch in *hatch-null* as easily. Future versions of Hatch may fix this.
 
 If you find problems with Hatch, please report them in the issue tracker.
 
