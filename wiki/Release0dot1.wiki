@@ -1,4 +1,4 @@
 #summary First release cut of hatch-timer (r115)
 
  * First release of hatch-timer
-
+ * see GettingStarted
