@@ -8,7 +8,7 @@ We'll talk about how to lie about performance metrics and how to do something wi
 
 = Lies =
 
-To experiment with Hatch, you may wish you could put in your own performance data a times.  In production you may want to use this to collect the processing time of an asynchronous operation that your code is processing the results of.  
+To experiment with Hatch, you may wish you could put your own performance data in at times.  In production you may want to use this to collect the processing time of an asynchronous operation that your code is processing the results of.  
 
 Otherwise this feature is mainly for playing with Hatch:
 
