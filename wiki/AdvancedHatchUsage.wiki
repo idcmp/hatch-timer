@@ -38,7 +38,7 @@ To logger globally:
 
 To see an example of how to set the per-stack logger, see TracingProblems.
 
-Note that the {{{BasicMetricsLogger}} is in *hatch-core* and implicitly referencing it will cause compile errors should you switch to *hatch-null* for testing.
+Note that the {{{BasicMetricsLogger}}} is in *hatch-core* and implicitly referencing it will cause compile errors should you switch to *hatch-null* for testing.
 
 == Log4J Logger ==
 
