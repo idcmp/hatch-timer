@@ -64,4 +64,4 @@ Traces will be logged at the *INFO* level.  Errors will be logged at the *ERROR*
 
 = Conclusion =
 
-It's fairly easy to extend the {{{BasicMetricsLogger}} to do some fairly interesting things.  See the TracingProblems page for more information.
+It's fairly easy to extend the {{{BasicMetricsLogger}}} to do some fairly interesting things.  See the TracingProblems page for more information.
