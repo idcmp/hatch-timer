@@ -1,4 +1,4 @@
-#summary r161 10-March-2008
+#summary r161 10-Mar-2008
 #labels ReleaseNotes
 
  * add {{{StackTraceUtil.reset()}}}
