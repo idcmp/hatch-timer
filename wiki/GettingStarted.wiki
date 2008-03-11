@@ -31,6 +31,7 @@ Then include hatch as a dependency:
     <dependency>
       <groupId>org.linuxstuff.hatch</groupId>
       <artifactId>hatch-core</artifactId>
+      <!-- See http://hatch-timer.googlecode.com/ for current version -->
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
