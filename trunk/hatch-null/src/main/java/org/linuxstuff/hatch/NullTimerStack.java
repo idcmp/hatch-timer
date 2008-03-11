@@ -39,4 +39,8 @@ class NullTimerStack implements TimerStack {
 	public void setThreadLocalMetricsLogger(MetricsLoggerStrategy logger) {
 		// null object, do nothing
 	}
+	
+	public void reset() {
+		// null object, do nothing
+	}
 }

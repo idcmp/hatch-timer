@@ -60,6 +60,9 @@ class LiveTimerStack implements TimerStack {
 			} else {
 				metrics.currentElement = metrics.currentElement.getParent();
 			}
+		} else {
+			metrics.getMetricsLogger().error(
+					"Pop of \"" + key + "\" called, when expecting \"" + metrics.currentElement.getName() + "\".");
 		}
 
 	}
@@ -179,4 +182,7 @@ class LiveTimerStack implements TimerStack {
 
 	}
 
+	public void reset() {
+		threadLocalMetrics.set(null);
+	}
 }

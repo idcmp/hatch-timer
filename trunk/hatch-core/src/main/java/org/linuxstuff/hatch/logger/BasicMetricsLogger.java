@@ -16,8 +16,15 @@ public class BasicMetricsLogger implements MetricsLoggerStrategy {
 		// For subclassing, see ExceedsDurationMetricLogger.
 	}
 
+	/**
+	 * Dump the error and a copy of the current stack trace to
+	 * {@code System.err}.
+	 */
 	public void error(String message) {
-		System.err.println(message);
+		System.err.println("Error: " + message);
+		for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+			System.err.println(element.toString());
+		}
 	}
 
 	protected void logMetric(PrintStream out, String indent, DurationBean bean) {
