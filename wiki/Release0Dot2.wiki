@@ -1,4 +1,5 @@
 #summary r161 10-March-2008
+#labels ReleaseNotes
 
  * add StackTraceUtil.reset()
  * add logging for pop/push (issue: #2)
