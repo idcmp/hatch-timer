@@ -144,5 +144,13 @@ public class TimerStackUtil {
 	public static void setThreadLocalMetricsLogger(MetricsLoggerStrategy logger) {
 		timerStack.setThreadLocalMetricsLogger(logger);
 	}
+	
+	/**
+	 * Clear the stack for the current thread.  This will reset any thread local
+	 * settings (metrics logger, state) to their default values.
+	 */
+	public static void reset() {
+		timerStack.reset();
+	}
 
 }

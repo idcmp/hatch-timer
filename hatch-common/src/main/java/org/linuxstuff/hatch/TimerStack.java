@@ -26,5 +26,7 @@ interface TimerStack {
 	public void setState(TraceState state);
 
 	public void setThreadLocalMetricsLogger(MetricsLoggerStrategy logger);
+	
+	public void reset();
 
 }

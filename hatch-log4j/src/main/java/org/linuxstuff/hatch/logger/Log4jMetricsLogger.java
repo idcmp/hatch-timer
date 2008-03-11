@@ -11,9 +11,12 @@ public class Log4jMetricsLogger extends BasicMetricsLogger implements MetricsLog
 
 	Logger log = Logger.getLogger("org.linuxstuff.hatch.MetricsLogger");
 
+	/**
+	 * Dump the error and a stack trace. I totally cheat here by just throwing
+	 * an exception.
+	 */
 	public void error(String message) {
-		log.error(message);
-
+		log.error(message, new Exception("Stack trace follows."));
 	}
 
 	public void logMetrics(DurationBean durationBean) {
