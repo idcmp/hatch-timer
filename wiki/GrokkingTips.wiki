@@ -1,0 +1,37 @@
+#summary Tips on Getting the Most from the Output
+
+So you've smartly placed calls of {{{TimerStackUtil.push}}}  and 
+{{{TimerStackUtil.pop}}} in your code and it prints:
+
+{{{
+  [240ms] placeWigglies
+    [240ms] oldPlaceWiggly
+      [15ms] fetchBalance
+      [188ms] createWiggly
+        [4ms] fetchWigglyFriend
+        [6ms] getWigglyCost
+        [105ms] addWiggliesToBasket
+          [72ms] addWiggly
+          [33ms] addWiggly
+        [5ms] findPendingWigglies
+        [0ms] checkRemainingFunds
+        [59ms] BasketHome: ejbCreate
+          [1ms] BasketEJB.ejbCreate (non-magic portion)
+          [50ms] BasketEJB.ejbPostCreate
+            [49ms] wigglyHome creates
+              [0ms] WigglyEJB.ejbCreate
+              [18ms] WigglyEJB.ejbPostCreate
+              [0ms] WigglyEJB.ejbCreate
+              [20ms] WigglyEJB.ejbPostCreate
+        [5ms] updateInventory
+      [26ms] updateAccountBalances
+      [10ms] appendAuditLogEntry
+}}}
+
+Once we're done laughing at the method names, we'll need to dig in and figure out what's going on.
+
+= So What's Slow? =
+
+You can tell very quickly that {{{placeWigglies}}} took 240ms and that _all_ of that time was spent in {{{oldPlaceWiggly}}}.  *Outcome:* Any code _in_ {{{placeWigglies}}} that _isn't_ {{{oldPlaceWiggly}}} executes in a trivial amount of time.
+
+The same can be seen for {{{addWiggliesToBasket}}}
