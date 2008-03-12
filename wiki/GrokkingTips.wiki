@@ -1,5 +1,7 @@
 #summary Tips on Getting the Most from the Output (work in progress)
 
+= This is a work in progress. =
+
 So you've smartly placed calls of {{{TimerStackUtil.push}}}  and 
 {{{TimerStackUtil.pop}}} in your code and it prints:
 
