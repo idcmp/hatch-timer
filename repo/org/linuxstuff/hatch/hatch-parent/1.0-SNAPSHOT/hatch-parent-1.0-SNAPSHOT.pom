@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0   http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.linuxstuff.hatch</groupId>
   <artifactId>hatch-parent</artifactId>
@@ -17,7 +17,6 @@
   <scm>
     <connection>scm:svn:http://hatch-timer.googlecom.com/svn</connection>
     <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn</developerConnection>
-    <tag>HEAD</tag>
     <url>http://code.google.com/p/hatch-timer/source/browse</url>
   </scm>
   <distributionManagement>
@@ -48,6 +47,18 @@
     </developer>
   </developers>
   <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+            <preparationGoals>clean install</preparationGoals>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -65,7 +76,10 @@
       </extension>
     </extensions>
   </build>
+
+
   <dependencies>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -74,7 +88,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-
   <repositories>
     <!-- Repository for wagon-svn -->
     <repository>
@@ -83,5 +96,4 @@
       <url>http://download.java.net/maven/2</url>
     </repository>
   </repositories>
-
 </project>
