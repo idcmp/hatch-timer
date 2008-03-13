@@ -88,7 +88,7 @@ Compile and start your project.  When a call to {{{businessMethod}}} completes, 
    [20ms] doLastBusinessThing
 }}}
 
-Sure takes a long time to {{{validateRequest}}}.
+Sure takes a long time to {{{validateRequest}}}.  See GrokkingTips for a few quick tips on reading the output.
 
 You may notice these values do not sum up correctly. This means that 10ms are spent in {{{businessMethod}}} itself.
 
