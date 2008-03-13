@@ -3,12 +3,13 @@
   <artifactId>hatch-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
   <versioning>
-    <release>0.2</release>
+    <release>0.3</release>
     <versions>
       <version>1.0-SNAPSHOT</version>
       <version>0.1</version>
       <version>0.2</version>
+      <version>0.3</version>
     </versions>
-    <lastUpdated>20080312001348</lastUpdated>
+    <lastUpdated>20080313035200</lastUpdated>
   </versioning>
 </metadata>
