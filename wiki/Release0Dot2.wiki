@@ -2,8 +2,8 @@
 #labels ReleaseNotes
 
  * add {{{StackTraceUtil.reset()}}}
- * add logging for pop/push (issue: #2)
- * include thread's execution stack dump on {{{MetricsLogger.error}}} (issue: #3)
+ * add logging for pop/push (issue #2)
+ * include thread's execution stack dump on {{{MetricsLogger.error}}} (issue #3)
  * Lots of documentation updates on the Wiki
 
 Previous Release: [Release0dot1]
