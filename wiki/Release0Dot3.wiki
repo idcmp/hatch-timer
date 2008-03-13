@@ -2,6 +2,6 @@
 #labels ReleaseNotes
 
  * only log the first push/pop mismatch (Issue #5)
- * GrokkingTips documentation
+ * GrokkingTips2 documentation (_not_ GrokkingTips - I can't edit that page)
 
 Previous Release: Release0Dot2
