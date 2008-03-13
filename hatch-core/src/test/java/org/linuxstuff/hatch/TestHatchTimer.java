@@ -13,6 +13,7 @@ public class TestHatchTimer extends TestCase {
 		super.setUp();
 		TimerStackUtil.setState(TraceState.ON);
 
+		TimerStackUtil.reset();
 		this.unitTestLogger = new UnitTestingMetricsLogger();
 		TimerStackUtil.setMetricsLogger(unitTestLogger);
 	}
