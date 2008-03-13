@@ -1,7 +1,7 @@
 #summary r251 12-Mar-2008
 #labels ReleaseNotes
 
- * fix for Issue #5
+ * only log the first push/pop mismatch (Issue #5)
  * GrokkingTips documentation
 
 Previous Release: Release0Dot2
