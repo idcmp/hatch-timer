@@ -11,7 +11,7 @@
 The time spent in {{{placeWigglies}}} is completely spent in {{{oldPlaceWiggly}}} which
 in turn is completely spent in {{{doPlaceWiggly}}}. 
 
----
+----
 
 {{{
   [105ms] addWiggliesToBasket
@@ -22,7 +22,7 @@ in turn is completely spent in {{{doPlaceWiggly}}}.
 The sum of the two children is equal to the parent.  This means that
 the time in the parent is completely spent in the children.
 
----
+----
 
 
 {{{
@@ -37,7 +37,7 @@ be related to caching in the first call being taken advantage of in
 the second. *Suggestion:* Add more tracing _within_ {{{addWiggly}}
 that may be involved with caching to confirm this hypothesis.
 
----
+----
 
 
 {{{
@@ -50,7 +50,7 @@ A lot of time is spent in the parent {{{pickApples}}} method, only a fraction
 is spent in the child {{{validatePick}}} method.  *Suggestion:*  Add more tracing
 _within_ {{{pickApples}}}.
 
----
+----
 
 
 {{{
@@ -71,7 +71,7 @@ Alternatively you can look at database performance, network usage or
 CPU speed.  Remember, there's a cost associated to you optimizing this
 code.  It may be cheaper to just buy another server.
 
----
+----
 
 
 {{{
@@ -88,7 +88,7 @@ slow.  If the stack dump doesn't tell you why, then I recommend
 selectively enabling dumping of the stack only when it's having
 performance issues.  See TracingProblems for more.
 
----
+----
 
 
 = More ideas welcome... =
