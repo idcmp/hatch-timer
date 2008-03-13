@@ -63,6 +63,7 @@ class LiveTimerStack implements TimerStack {
 		} else {
 			metrics.getMetricsLogger().error(
 					"Pop of \"" + key + "\" called, when expecting \"" + metrics.currentElement.getName() + "\".");
+			threadLocalMetrics.set(null); // reset thread's tracing state
 		}
 
 	}
