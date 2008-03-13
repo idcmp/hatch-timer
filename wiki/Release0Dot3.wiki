@@ -1,5 +1,5 @@
-#summary r251 12-Mar-08
+#summary r251 12-Mar-2008
 #labels ReleaseNotes
 
-* fix for Issue #5
-* GrokkingTips documentation
+ * fix for Issue #5
+ * GrokkingTips documentation
