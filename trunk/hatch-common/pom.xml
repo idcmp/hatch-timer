@@ -4,11 +4,11 @@
   <parent>
     <groupId>org.linuxstuff.hatch</groupId>
     <artifactId>hatch-parent</artifactId>
-    <version>0.4.1</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   <groupId>org.linuxstuff.hatch</groupId>
   <artifactId>hatch-common</artifactId>
-  <version>0.4.1</version>
+  <version>1.0-SNAPSHOT</version>
   <name>Hatch Common Code</name>
   <description>Hatch: Common Code</description>
 </project>
