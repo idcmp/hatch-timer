@@ -1,0 +1,5 @@
+#summary r390 14-Mar-2008
+
+ * Exceeds duration logger delegates to specified metrics logger (Issue #10) 
+
+Previous Release: Release0Dot3
