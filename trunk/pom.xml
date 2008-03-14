@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.linuxstuff.hatch</groupId>
   <artifactId>hatch-parent</artifactId>
-  <version>0.4</version>
+  <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>Hatch: Parent Module</name>
   <description>A stacked performance monitor.</description>
@@ -15,9 +15,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://hatch-timer.googlecom.com/svn/tags/0.4</connection>
-    <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn/tags/0.4</developerConnection>
-    <url>http://code.google.com/p/hatch-timer/source/browse/tags/0.4</url>
+    <connection>scm:svn:http://hatch-timer.googlecom.com/svn</connection>
+    <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn</developerConnection>
+    <url>http://code.google.com/p/hatch-timer/source/browse</url>
   </scm>
   <distributionManagement>
     <repository>
