@@ -3,25 +3,32 @@ package org.linuxstuff.hatch.logger;
 import org.linuxstuff.hatch.DurationBean;
 
 /**
- * A logger that extends {@code BasicMetricLogger}, but will only log stack
- * output if the duration of top of the stack is greater than a specified
- * threshold (in milliseconds).
+ * A logger that implements {@code MetricsLoggerStrategy}, but will only log
+ * stack output if the duration of top of the stack is greater than a specified
+ * threshold (in milliseconds). It will delegate the logging to the one passed
+ * in during construction.
  * 
  * @author idcmp
  * 
  */
-public class ExceedsDurationMetricsLogger extends BasicMetricsLogger implements MetricsLoggerStrategy {
+public class ExceedsDurationMetricsLogger implements MetricsLoggerStrategy {
 
 	private long thresholdDuration;
+	private MetricsLoggerStrategy delegate;
 
-	public ExceedsDurationMetricsLogger(long thresholdDuration) {
+	public ExceedsDurationMetricsLogger(MetricsLoggerStrategy delegate,
+			long thresholdDuration) {
 		this.thresholdDuration = thresholdDuration;
 	}
 
-	@Override public void logMetrics(DurationBean durationBean) {
+	public void logMetrics(DurationBean durationBean) {
 		if (durationBean.getDuration() > thresholdDuration) {
-			super.logMetrics(durationBean);
+			delegate.logMetrics(durationBean);
 		}
+	}
+
+	public void error(String message) {
+		delegate.error(message);
 	}
 
 }
