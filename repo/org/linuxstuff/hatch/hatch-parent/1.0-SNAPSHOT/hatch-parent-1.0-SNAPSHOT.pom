@@ -15,9 +15,9 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:svn:http://hatch-timer.googlecom.com/svn</connection>
-    <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn</developerConnection>
-    <url>http://code.google.com/p/hatch-timer/source/browse</url>
+    <connection>scm:svn:http://hatch-timer.googlecom.com/svn/tags/1.0-SNAPSHOT</connection>
+    <developerConnection>scm:svn:https://hatch-timer.googlecode.com/svn/tags/1.0-SNAPSHOT</developerConnection>
+    <url>http://code.google.com/p/hatch-timer/source/browse/tags/1.0-SNAPSHOT</url>
   </scm>
   <distributionManagement>
     <repository>
