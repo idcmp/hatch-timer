@@ -22,11 +22,11 @@ public class UnitTestingMetricsLogger extends BasicMetricsLogger implements Metr
 		errors.add(message);
 	}
 
-	public void logMetrics(DurationBean durationBean) {
+	public void logMetrics(DurationBean durationBean,long duration) {
 
 		ByteArrayOutputStream byteArrayStream = new ByteArrayOutputStream();
 
-		logMetric(new PrintStream(byteArrayStream), "", durationBean);
+		logMetric(new PrintStream(byteArrayStream), "", durationBean,0);
 
 		this.lastDump = byteArrayStream.toString();
 		logRequests.put(durationBean, this.lastDump);

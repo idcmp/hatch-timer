@@ -21,9 +21,9 @@ public class ExceedsDurationMetricsLogger implements MetricsLoggerStrategy {
 		this.thresholdDuration = thresholdDuration;
 	}
 
-	public void logMetrics(DurationBean durationBean) {
+	public void logMetrics(DurationBean durationBean, long minimumDuration) {
 		if (durationBean.getDuration() > thresholdDuration) {
-			delegate.logMetrics(durationBean);
+			delegate.logMetrics(durationBean, minimumDuration);
 		}
 	}
 

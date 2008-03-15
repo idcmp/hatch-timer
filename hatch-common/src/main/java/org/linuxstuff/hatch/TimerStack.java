@@ -28,5 +28,9 @@ interface TimerStack {
 	public void setThreadLocalMetricsLogger(MetricsLoggerStrategy logger);
 	
 	public void reset();
+	
+	public TraceState getState();
+	
+	public void setMinimumLoggingThreshold(long milliseconds);
 
 }

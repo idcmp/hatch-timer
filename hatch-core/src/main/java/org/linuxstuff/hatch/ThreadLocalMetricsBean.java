@@ -38,8 +38,8 @@ final class ThreadLocalMetricsBean {
 		return metricsLogger;
 	}
 
-	void logMetrics() {
-		metricsLogger.logMetrics(currentElement);
+	void logMetrics(long minimumThreshold) {
+		metricsLogger.logMetrics(currentElement,minimumThreshold);
 	}
 
 	void push(DurationBean bean) {

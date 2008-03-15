@@ -8,6 +8,8 @@ class LiveTimerStack implements TimerStack {
 	private MetricsLoggerStrategy defaultMetricsLogger = BasicMetricsLogger.LOGGER;
 	private TraceState state = TraceState.BY_REQUEST;
 
+	private long minimumDuration = 3; // in millis
+
 	private ThreadLocal<ThreadLocalMetricsBean> threadLocalMetrics = new ThreadLocal<ThreadLocalMetricsBean>();
 
 	public void enableAndPush(String key) {
@@ -40,7 +42,8 @@ class LiveTimerStack implements TimerStack {
 
 		if (metrics.currentElement == null) {
 			metrics.getMetricsLogger().error(
-					"TimerStackUtil.pop(\"" + key + "\") called without any prior calls to push().");
+					"TimerStackUtil.pop(\"" + key
+							+ "\") called without any prior calls to push().");
 			return;
 		}
 
@@ -54,7 +57,7 @@ class LiveTimerStack implements TimerStack {
 			}
 
 			if (metrics.currentElement.getParent() == null) {
-				metrics.logMetrics();
+				metrics.logMetrics(this.minimumDuration);
 
 				threadLocalMetrics.set(null);
 			} else {
@@ -62,7 +65,8 @@ class LiveTimerStack implements TimerStack {
 			}
 		} else {
 			metrics.getMetricsLogger().error(
-					"Pop of \"" + key + "\" called, when expecting \"" + metrics.currentElement.getName() + "\".");
+					"Pop of \"" + key + "\" called, when expecting \""
+							+ metrics.currentElement.getName() + "\".");
 			threadLocalMetrics.set(null); // reset thread's tracing state
 		}
 
@@ -73,39 +77,40 @@ class LiveTimerStack implements TimerStack {
 
 		switch (state) {
 
-			case OFF:
-				return;
-
-				/**
-				 * If we only push by request, then lets check if this thread
-				 * has requested tracing.
-				 */
-			case BY_REQUEST:
-				metrics = threadLocalMetrics.get();
-
-				if (metrics == null || metrics.traceState == TraceState.OFF) {
-					return;
-				}
-
-				metrics.push(new DurationBean(key));
-
-				break;
+		case OFF:
+			return;
 
 			/**
-			 * It's ON, we'll create a thread-specific stack if needed, or use
-			 * the one we already have.
+			 * If we only push by request, then lets check if this thread has
+			 * requested tracing.
 			 */
-			case ON:
-				metrics = threadLocalMetrics.get();
-				if (metrics == null) {
-					metrics = new ThreadLocalMetricsBean(state, new DurationBean(key), defaultMetricsLogger);
+		case BY_REQUEST:
+			metrics = threadLocalMetrics.get();
 
-					threadLocalMetrics.set(metrics);
+			if (metrics == null || metrics.traceState == TraceState.OFF) {
+				return;
+			}
 
-				} else {
-					metrics.push(new DurationBean(key));
-				}
-				break;
+			metrics.push(new DurationBean(key));
+
+			break;
+
+		/**
+		 * It's ON, we'll create a thread-specific stack if needed, or use the
+		 * one we already have.
+		 */
+		case ON:
+			metrics = threadLocalMetrics.get();
+			if (metrics == null) {
+				metrics = new ThreadLocalMetricsBean(state, new DurationBean(
+						key), defaultMetricsLogger);
+
+				threadLocalMetrics.set(metrics);
+
+			} else {
+				metrics.push(new DurationBean(key));
+			}
+			break;
 		}
 
 	}
@@ -186,4 +191,24 @@ class LiveTimerStack implements TimerStack {
 	public void reset() {
 		threadLocalMetrics.set(null);
 	}
+
+	public TraceState getState() {
+		if (state == TraceState.BY_REQUEST) {
+			ThreadLocalMetricsBean metrics = threadLocalMetrics.get();
+
+			if (metrics == null || metrics.traceState == TraceState.OFF) {
+				return state;
+			} else {
+				return TraceState.ON;
+			}
+
+		} else {
+			return state;
+		}
+	}
+
+	public void setMinimumLoggingThreshold(long milliseconds) {
+		this.minimumDuration = milliseconds;
+	}
+
 }
