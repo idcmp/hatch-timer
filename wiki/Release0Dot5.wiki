@@ -1,6 +1,6 @@
 #summary r??? 15-March-2008
 
  * added getState (Issue #11)
- * added setMinimumLoggingThreshold (Issue #6)
+ * added setMinimumLoggingThreshold (Issue #4)
 
 Previous Release: Release0Dot4
