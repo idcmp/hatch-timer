@@ -1,5 +1,7 @@
 #summary r390 14-Mar-2008
 
+=NOTE: This release is 0.4.1 due to Maven issues=
+
  * Exceeds duration logger delegates to specified metrics logger (Issue #10) 
 
 Previous Release: Release0Dot3
