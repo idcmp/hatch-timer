@@ -11,7 +11,7 @@ public class NullMetricsLogger implements MetricsLoggerStrategy {
 
 	}
 
-	public void logMetrics(DurationBean durationBean) {
+	public void logMetrics(DurationBean durationBean, long minimumDuration) {
 		// also do nothing!
 	}
 

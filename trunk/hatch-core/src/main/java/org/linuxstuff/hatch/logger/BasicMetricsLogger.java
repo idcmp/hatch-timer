@@ -27,15 +27,19 @@ public class BasicMetricsLogger implements MetricsLoggerStrategy {
 		}
 	}
 
-	protected void logMetric(PrintStream out, String indent, DurationBean bean) {
-		out.println(indent + "[" + bean.getDuration() + "ms] " + bean.getName());
+	protected void logMetric(PrintStream out, String indent, DurationBean bean,
+			long minimumDuration) {
+		if (minimumDuration == 0 || bean.getDuration() >= minimumDuration) {
+			out.println(indent + "[" + bean.getDuration() + "ms] "
+					+ bean.getName());
+		}
 		for (DurationBean child : bean.getChildren()) {
-			logMetric(out, indent + "  ", child);
+			logMetric(out, indent + "  ", child, minimumDuration);
 		}
 	}
 
-	public void logMetrics(DurationBean durationBean) {
-		logMetric(System.out, "", durationBean);
+	public void logMetrics(DurationBean durationBean, long minimumDuration) {
+		logMetric(System.out, "", durationBean, minimumDuration);
 	}
 
 }

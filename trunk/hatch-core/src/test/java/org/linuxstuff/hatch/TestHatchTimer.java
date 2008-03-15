@@ -9,10 +9,11 @@ public class TestHatchTimer extends TestCase {
 
 	private UnitTestingMetricsLogger unitTestLogger;
 
-	@Override protected void setUp() throws Exception {
+	@Override
+	protected void setUp() throws Exception {
 		super.setUp();
 		TimerStackUtil.setState(TraceState.ON);
-
+		TimerStackUtil.setMinimumLoggingThreshold(0);
 		TimerStackUtil.reset();
 		this.unitTestLogger = new UnitTestingMetricsLogger();
 		TimerStackUtil.setMetricsLogger(unitTestLogger);
@@ -22,18 +23,20 @@ public class TestHatchTimer extends TestCase {
 
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work");
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size());
 	}
 
 	public void testSimpleFixed() {
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work", 1000l);
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
-		assertEquals("This stack must have a duration of 1000ms", unitTestLogger.logRequests.keySet().iterator().next()
-				.getDuration(), 1000);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size(), 1);
+		assertEquals("This stack must have a duration of 1000ms", 1000, unitTestLogger.logRequests
+				.keySet().iterator().next().getDuration());
 
 	}
 
@@ -42,8 +45,8 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must not be any stacks logged.", unitTestLogger.logRequests.size(), 0);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must not be any stacks logged.", 0, unitTestLogger.logRequests.size());
 
 	}
 
@@ -52,8 +55,8 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must not be any stacks logged.", unitTestLogger.logRequests.size(), 0);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must not be any stacks logged.", 0, unitTestLogger.logRequests.size());
 
 	}
 
@@ -62,8 +65,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.enableAndPush("work");
 		TimerStackUtil.pop("work");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size());
 
 	}
 
@@ -72,8 +76,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.enableAndPush("work");
 		TimerStackUtil.setState(TraceState.BY_REQUEST);
 		TimerStackUtil.pop("work");
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size());
 	}
 
 	public void testStateByRequestWithDelayedRequest() {
@@ -83,8 +88,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.pop("work");
 		TimerStackUtil.pop("work-before-request");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size());
 
 	}
 
@@ -93,8 +99,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.setState(TraceState.OFF);
 		TimerStackUtil.pop("work");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must not be any attempts log the stack.", unitTestLogger.logRequests.size(), 0);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must not be any attempts log the stack.", 0, unitTestLogger.logRequests
+				.size());
 
 	}
 
@@ -104,8 +111,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.setThreadLocalMetricsLogger(unitTestLogger);
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work");
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must only be one attempt to log the stack.", unitTestLogger.logRequests.size(), 1);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must only be one attempt to log the stack.", 1,
+				unitTestLogger.logRequests.size());
 	}
 
 	public void testGlobalLogger() {
@@ -113,8 +121,9 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.setMetricsLogger(NullMetricsLogger.LOGGER);
 		TimerStackUtil.push("work");
 		TimerStackUtil.pop("work");
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("There must not be any attempts to log the stack.", unitTestLogger.logRequests.size(), 0);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("There must not be any attempts to log the stack.", 0,
+				unitTestLogger.logRequests.size());
 	}
 
 	public void testSmallStack() {
@@ -134,9 +143,10 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.pop("one");
 		TimerStackUtil.pop("web-request");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("Must have only one attempt to log stack: ", unitTestLogger.logRequests.size(), 1);
-		assertEquals("Dump must have seven lines!", unitTestLogger.linesInLasttTrace(), 7);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("Must have only one attempt to log stack: ", 1, unitTestLogger.logRequests
+				.size());
+		assertEquals("Dump must have seven lines!", 7, unitTestLogger.linesInLasttTrace());
 
 	}
 
@@ -154,16 +164,13 @@ public class TestHatchTimer extends TestCase {
 		TimerStackUtil.pop("two", 5l);
 		TimerStackUtil.pop("one", 25l);
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("Must have only one attempt to log stack: ", unitTestLogger.logRequests.size(), 1);
-		assertEquals("Dump must have six lines!", unitTestLogger.linesInLasttTrace(), 6);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("Must have only one attempt to log stack: ", 1, unitTestLogger.logRequests
+				.size());
+		assertEquals("Dump must have six lines!", 6, unitTestLogger.linesInLasttTrace());
 		System.out.println(unitTestLogger.getLastDump());
-		
-
 	}
 
-	
-	
 	/**
 	 * [XXms] outer [1ms] inner [2ms] inner [3ms] inner etc..
 	 */
@@ -178,8 +185,9 @@ public class TestHatchTimer extends TestCase {
 
 		TimerStackUtil.pop("outer");
 
-		assertEquals("There must not be any errors.", unitTestLogger.errors.size(), 0);
-		assertEquals("Must have only one attempt to log stack: ", unitTestLogger.logRequests.size(), 1);
-		assertEquals("Dump must have 10 lines!", unitTestLogger.linesInLasttTrace(), 10);
+		assertEquals("There must not be any errors.", 0, unitTestLogger.errors.size());
+		assertEquals("Must have only one attempt to log stack: ", 1, unitTestLogger.logRequests
+				.size());
+		assertEquals("Dump must have 10 lines!", 10, unitTestLogger.linesInLasttTrace());
 	}
 }

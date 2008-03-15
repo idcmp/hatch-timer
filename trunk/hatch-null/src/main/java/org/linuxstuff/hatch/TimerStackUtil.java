@@ -66,4 +66,21 @@ public class TimerStackUtil {
 		timerStack.setThreadLocalMetricsLogger(logger);
 	}
 
+	/**
+	 * You are using the <b>hatch-null</b> implementation of Hatch. All calls
+	 * are no-ops. You should use the <b>hatch-core</b> artifact if you want
+	 * Hatch to do something.
+	 */
+	public static void setMinimumLoggingThreshold(long milliseconds) {
+		timerStack.setMinimumLoggingThreshold(milliseconds);
+	}
+
+	/**
+	 * You are using the <b>hatch-null</b> implementation of Hatch. All calls
+	 * are no-ops. You should use the <b>hatch-core</b> artifact if you want
+	 * Hatch to do something.
+	 */
+	public static TraceState getState() {
+		return TraceState.OFF;
+	}
 }

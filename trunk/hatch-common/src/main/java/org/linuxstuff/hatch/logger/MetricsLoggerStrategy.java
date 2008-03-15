@@ -6,6 +6,6 @@ public interface MetricsLoggerStrategy {
 
 	public void error(String message);
 
-	public void logMetrics(DurationBean durationBean);
+	public void logMetrics(DurationBean durationBean, long minimumThreshold);
 
 }

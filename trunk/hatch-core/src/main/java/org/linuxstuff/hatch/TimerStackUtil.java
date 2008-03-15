@@ -28,14 +28,15 @@ import org.linuxstuff.hatch.logger.MetricsLoggerStrategy;
  *    TimerStack.pop("add-account");
  * 
  * </code>
- *  
+ * 
  * @see TimerStack#push(String)
  * @see TimerStack#pop(String)
  * 
  * 
- * This class is actually a proxy to a {@code LiveTimerStack} implementation.  You can swap out this
- * live TimerStackUtil by using the <b>hatch-null</b> artifact.  It has a separate TimerStackUtil
- * implementation but proxies to a null object implementation.
+ * This class is actually a proxy to a {@code LiveTimerStack} implementation.
+ * You can swap out this live TimerStackUtil by using the <b>hatch-null</b>
+ * artifact. It has a separate TimerStackUtil implementation but proxies to a
+ * null object implementation.
  * 
  * @author idcmp
  * 
@@ -44,7 +45,7 @@ import org.linuxstuff.hatch.logger.MetricsLoggerStrategy;
 public class TimerStackUtil {
 
 	private static TimerStack timerStack = new LiveTimerStack();
-	
+
 	/**
 	 * Enable {@code TraceState#BY_REQUEST} and push the given key onto the
 	 * timer stack. The BY_REQUEST state of the stack will remain on the current
@@ -55,7 +56,7 @@ public class TimerStackUtil {
 	 * @see #push(String);
 	 */
 	public static void enableAndPush(final String key) {
-		
+
 		timerStack.enableAndPush(key);
 	}
 
@@ -104,8 +105,8 @@ public class TimerStackUtil {
 	 * 
 	 * The default is {@code BasicMetricsLogger#LOGGER}.
 	 * 
-	 * @param logger any concrete implementation of
-	 *            {@code MetricsLoggerStrategy}.
+	 * @param logger
+	 *            any concrete implementation of {@code MetricsLoggerStrategy}.
 	 */
 	public static void setMetricsLogger(MetricsLoggerStrategy logger) {
 		timerStack.setMetricsLogger(logger);
@@ -117,11 +118,43 @@ public class TimerStackUtil {
 	 * allowing code to programatically enable tracing for your application when
 	 * needed.
 	 * 
-	 * @param state See {@code TraceState}. Default is
+	 * @param state
+	 *            See {@code TraceState}. Default is
 	 *            {@code TraceState#BY_REQUEST}.
 	 */
 	public static void setState(TraceState state) {
 		timerStack.setState(state);
+	}
+
+	/**
+	 * If you must perform an expensive operation due to tracing, you should
+	 * check to see if tracing is enabled first. In a nutshell, if
+	 * {@code TraceState#ON} is returned, then you're tracing, otherwise you're
+	 * not.
+	 * 
+	 * If globally the state is {@code TraceState#ON} or {@code TraceState#OFF},
+	 * then that is returned. As for {@code TraceState#BY_REQUEST},if the
+	 * thread has requested tracing then {@code TraceState#ON} is returned.
+	 * Otherwise, {@code TraceState#BY_REQUEST} is returned.
+	 * 
+	 */
+	public static TraceState getState() {
+		return timerStack.getState();
+	}
+
+	/**
+	 * A convenience method for MetricsLoggers to retrieve what the minimum
+	 * duration a stack element must have run for to be included in the dump.
+	 * 
+	 * It is up to each MetricsLogger to honour this value.
+	 * 
+	 * Set to 0 to disable.
+	 * 
+	 * @param milliseconds
+	 *            minimum duration of a stack element to be logged
+	 */
+	public static void setMinimumLoggingThreshold(long milliseconds) {
+		timerStack.setMinimumLoggingThreshold(milliseconds);
 	}
 
 	/**
@@ -138,15 +171,15 @@ public class TimerStackUtil {
 	 * 
 	 * @see ExceedsDurationMetricsLogger
 	 * 
-	 * @param logger any concrete implementation of
-	 *            {@code MetricsLoggerStrategy}.
+	 * @param logger
+	 *            any concrete implementation of {@code MetricsLoggerStrategy}.
 	 */
 	public static void setThreadLocalMetricsLogger(MetricsLoggerStrategy logger) {
 		timerStack.setThreadLocalMetricsLogger(logger);
 	}
-	
+
 	/**
-	 * Clear the stack for the current thread.  This will reset any thread local
+	 * Clear the stack for the current thread. This will reset any thread local
 	 * settings (metrics logger, state) to their default values.
 	 */
 	public static void reset() {
