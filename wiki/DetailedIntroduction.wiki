@@ -41,12 +41,13 @@ If your code is *already* wrapped in a try/catch block after variable initializa
      }
 }}}
 
-*Example 2: Try/Finally*
+*Example 3: Try/Finally*
 {{{
      private void secondActivity() throws UglyException;
 
      public void businessMethod() {
          try {
+           ...
            try {
              TimerStackUtil.push("businessMethod");
              firstActvitiy();
@@ -66,7 +67,7 @@ However, the normal case is you won't have a giant try/catch block.  You are the
 
 Your second option is to do nothing:
 
-*Example 3: Tracing only on Success*
+*Example 4: Tracing only on Success*
 {{{
      public void businessMethod() {
          TimerStackUtil.push("businessMethod");
