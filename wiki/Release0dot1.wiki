@@ -1,4 +1,4 @@
-#summary r115 09-Mar-2008
+#summary r117 09-Mar-2008
 #labels ReleaseNotes
 
  * First release of hatch-timer
