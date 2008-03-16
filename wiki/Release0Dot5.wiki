@@ -2,6 +2,6 @@
 #labels ReleaseNotes
 
  * added getState (Issue #11)
- * added setMinimumLoggingThreshold (Issue #4)
+ * added setMinimumLoggingThreshold (Issue #4): *NOTE* Default minimum is 3ms.
 
 Previous Release: Release0Dot4
