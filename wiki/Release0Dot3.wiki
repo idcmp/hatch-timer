@@ -1,4 +1,4 @@
-#summary r251 12-Mar-2008
+#summary r252 12-Mar-2008
 #labels ReleaseNotes
 
  * only log the first push/pop mismatch (Issue #5)
