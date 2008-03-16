@@ -10,8 +10,8 @@ In *hatch-core*, there is {{{ExceedsDurationMetricsLogger}}}.  Combining this wi
    public void businessMethod() {
      TimerStackUtil.enableAndPush("businessMethod");
      ...
-     TimerStackUtil.setThreadLocalMetricsLogger(BasicMetricsLogger.LOGGER,
-        new ExceedsDurationMetricsLogger(999));
+     TimerStackUtil.setThreadLocalMetricsLogger(
+        new ExceedsDurationMetricsLogger(BasicMetricsLogger.LOGGER,1000));
      TimerStackUtil.pop("businessMethod");
    }
 }}}
