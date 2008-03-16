@@ -27,7 +27,7 @@ In GettingStarted we added some code around a business method.  However, if an e
 
 If your code is *already* wrapped in a try/catch block after variable initialization, you can add the pop call into a finally block.  This is more useful in helper/utility classes your application may have.  
 
-*Example 2: Try/Catch/Finally*
+*Example 2: Try/Finally*
 {{{
      public void businessMethod() {
          try {
@@ -40,6 +40,27 @@ If your code is *already* wrapped in a try/catch block after variable initializa
          }
      }
 }}}
+
+*Example 2: Try/Finally*
+{{{
+     private void secondActivity() throws UglyException;
+
+     public void businessMethod() {
+         try {
+           try {
+             TimerStackUtil.push("businessMethod");
+             firstActvitiy();
+             secondActvitiy();
+             thirdActvitiy();
+           } finally {
+             TimerStackUtil.pop("businessMethod");
+           }
+         } catch (UglyException ugly) {
+           ...
+         }
+     }
+}}}
+
 
 However, the normal case is you won't have a giant try/catch block.  You are then left with two options.  The first is wrapping the code in a try/catch block.  You may want to consider this if you're making good use of Hatch in your project.
 
@@ -55,6 +76,7 @@ Your second option is to do nothing:
          TimerStackUtil.pop("businessMethod");
      }
 }}}
+
 
 In the above situation, you will only get successful dumps if no exception is thrown.  This is what you want anyway, since collecting metrics for your code when it errors is less useful than when it succeeds (unless you have some sort of crazy exception handling framework).
 
