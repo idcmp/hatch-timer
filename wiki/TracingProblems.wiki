@@ -11,7 +11,7 @@ In *hatch-core*, there is {{{ExceedsDurationMetricsLogger}}}.  Combining this wi
      TimerStackUtil.enableAndPush("businessMethod");
      ...
      TimerStackUtil.setThreadLocalMetricsLogger(
-        new ExceedsDurationMetricsLogger(BasicMetricsLogger.LOGGER,1000));
+        new ExceedsDurationMetricsLogger(BasicMetricsLogger.LOGGER,999));
      TimerStackUtil.pop("businessMethod");
    }
 }}}
