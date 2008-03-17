@@ -1,0 +1,6 @@
+#summary r561 17-March-2008
+#labels ReleaseNotes
+
+ * fix NPE (Issue #13)
+
+Previous Release: Release0Dot5
