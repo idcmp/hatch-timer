@@ -18,6 +18,7 @@ public class ExceedsDurationMetricsLogger implements MetricsLoggerStrategy {
 
 	public ExceedsDurationMetricsLogger(MetricsLoggerStrategy delegate,
 			long thresholdDuration) {
+		this.delegate = delegate;
 		this.thresholdDuration = thresholdDuration;
 	}
 
