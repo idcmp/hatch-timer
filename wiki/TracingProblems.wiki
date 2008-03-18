@@ -21,4 +21,16 @@ dump the stack if the business method took 1 second or greater.
 
 This is supremely handy to diagnose contention issues at run time without having to log every single request.  
 
+You can also construct a metricsLogger statically and use it:
+{{{
+
+   private static final cashierLogger = new ExceedsDurationMetricsLogger(new Log4jMetricsLogger(),249);
+   ...
+   public void cashInStocks(...) {
+     TimerStackUtil.enableAndPush("cashInStocks");
+     TimerStackUtil.setThreadLocalMetricsLogger(cashierLogger);
+     .......
+}}}
+
+
 I should write more here.
