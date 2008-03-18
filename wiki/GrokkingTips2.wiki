@@ -34,7 +34,7 @@ the time in the parent is completely spent in the children.
 The time in the first call to {{{addWiggly}}} is significantly more
 expensive than the second.  Logic flow being identical, this tends to
 be related to caching in the first call being taken advantage of in
-the second. *Suggestion:* Add more tracing _within_ {{{addWiggly}}
+the second. *Suggestion:* Add more tracing _within_ {{{addWiggly}}}
 that may be involved with caching to confirm this hypothesis.
 
 ----
