@@ -39,6 +39,16 @@ that may be involved with caching to confirm this hypothesis.
 
 ----
 
+You've added logging to {{{readBook}}}, {{{readPage}}} and {{{flipPage}}}, when you run your code you notice {{{flipPage}}} is missing!
+
+{{{
+  [10ms] readBook
+    [8ms] readPage
+}}}
+
+Stack elements less than 3ms are not logged.  *Suggestion:* Use {{{TimerStackUtil.setMinimumLoggingThreshold}}}.  Pass in 0 to always show stack elements. (Including ones that are 0ms!)
+----
+
 
 {{{
   [100ms] pickApples
