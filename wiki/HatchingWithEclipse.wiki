@@ -7,19 +7,12 @@ Having instrumented a few different classes, here are some tips that you may wan
 I strongly recommend starting with the top-most or outer-most method in your system.  This is likely some business-sounding method like {{{performTrade}}}, {{{validateAccount}}} or {{{login}}}.  In my example, it's called {{{solveLUE}}}. 
 
 I assume you've added the necessary artifacts to your build path at this point.
-{{{
-
-}}}
 
 = Autocomplete Types =
 
 Eclipse will guess at types based on the acronym you enter.  Enter "*TSU*" and hit *Ctrl-Space* to save yourself needless keystrokes.
 
 ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-1.png] || becomes ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-2.png] ||
-{{{
-
-}}}
-
 
 = Depth First Navigation =
 
@@ -30,9 +23,6 @@ Using *Ctrl-Click* and *Alt-Left* you can navigate in and out of the methods.  I
 
  * Note: Depending multiple *Alt-Left* may be needed to get back to the previous method.
  * Note: I'm not kidding, this takes a bit to get used to, but now you'll grow to really like it.
-{{{
-
-}}}
 
 = Check Diffs Before Compiling =
 
