@@ -60,7 +60,7 @@ Then globally set it as the default logger:
      TimerStackUtil.setMetricsLogger(new Log4jMetricsLogger());
 }}}
 
-Traces will be logged at the *INFO* level.  Errors will be logged at the *ERROR* level.
+Traces will be logged at the *INFO* level.  Errors will be logged at the *ERROR* level. Both use "*org.linuxstuff.hatch.MetricsLogger*" as a category name.
 
 = Conclusion =
 
