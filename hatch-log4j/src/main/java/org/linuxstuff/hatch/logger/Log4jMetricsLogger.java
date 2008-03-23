@@ -9,6 +9,8 @@ import org.linuxstuff.hatch.logger.MetricsLoggerStrategy;
 
 public class Log4jMetricsLogger extends BasicMetricsLogger implements MetricsLoggerStrategy {
 
+	public static final MetricsLoggerStrategy LOGGER = new Log4jMetricsLogger();
+
 	Logger log = Logger.getLogger("org.linuxstuff.hatch.MetricsLogger");
 
 	/**
@@ -19,7 +21,7 @@ public class Log4jMetricsLogger extends BasicMetricsLogger implements MetricsLog
 		log.error(message, new Exception("Stack trace follows."));
 	}
 
-	public void logMetrics(DurationBean durationBean,long minimumDuration) {
+	public void logMetrics(DurationBean durationBean, long minimumDuration) {
 
 		if (!log.isInfoEnabled()) {
 			return;
@@ -27,7 +29,7 @@ public class Log4jMetricsLogger extends BasicMetricsLogger implements MetricsLog
 
 		ByteArrayOutputStream byteArrayStream = new ByteArrayOutputStream();
 
-		logMetric(new PrintStream(byteArrayStream), "", durationBean,minimumDuration);
+		logMetric(new PrintStream(byteArrayStream), "", durationBean, minimumDuration);
 
 		log.info(byteArrayStream.toString());
 
