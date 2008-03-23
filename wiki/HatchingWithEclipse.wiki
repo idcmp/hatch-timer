@@ -15,6 +15,8 @@ Eclipse will guess at types based on the acronym you enter.  Enter "*TSU*" and h
 
 ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-1.png] || >becomes> ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-2.png] ||
 
+ * Note: Teach your fingers "*TSU*" *Ctrl-Space* "*.push*" 
+
 = Depth First Navigation =
 
 Using *Ctrl-Click* and *Alt-Left* you can navigate in and out of the methods.  If you're not used to using *Alt-Left* to navigate, this may take a few tries to perfect.
