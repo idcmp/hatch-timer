@@ -6,7 +6,7 @@ Having instrumented a few different classes, here are some tips that you may wan
 
 I strongly recommend starting with the top-most or outer-most method in your system.  This is likely some business-sounding method like {{{performTrade}}}, {{{validateAccount}}} or {{{login}}}.  In my example, it's called {{{solveLUE}}}. 
 
-I assume you've added the necessary artifacts to your build path at this point.
+I assume you've read the GettingStarted page and added the necessary artifacts to your build path at this point.
 
 = Autocomplete Types =
 
