@@ -25,3 +25,11 @@ Using *Ctrl-Click* and *Alt-Left* you can navigate in and out of the methods.  I
  * Note: Depending multiple *Alt-Left* may be needed to get back to the previous method.
  * Note: I'm not kidding, this takes a bit to get used to, but now you'll grow to really like it.
 ----
+= Check Diffs Before Compiling =
+
+Once you have instrumented some code in your application, grab a diff from your local repository.  You want to check three things:
+ # You haven't accidentally reformatted the source code, making your diff larger than it is.
+ # You correctly used {{{pop}}} at the end of your methods (and didn't accidentally paste in another {{{push}}}).
+ # The string used in {{{push}}} matches the one in {{{pop}}}.
+
+This quick check before you compile/deploy will catch any dumb mistakes!
