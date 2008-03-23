@@ -1,0 +1,13 @@
+#summary A few quick tips for using Hatch within Eclipse.
+
+= Introduction =
+
+Having instrumented a few different classes, here are some tips that you may want to consider when adding Hatch with Eclipse.
+
+I strongly recommend starting with the top-most or outer-most method in your system.  This is likely some business-sounding method like {{{performTrade}}}, {{{validateAccount}}} or {{{login}}}.  In my example, it's called {{{solveLUE}}}. 
+
+I assume you've added the necessary artifacts to your build path at this point.
+
+= Autocomplete Types =
+
+Eclipse will guess at types based on the acronym you enter.  Enter "*TSU*" and hit *Ctrl-Space* to save yourself needless keystrokes.
