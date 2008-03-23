@@ -1,4 +1,5 @@
 #summary A few quick tips for using Hatch within Eclipse.
+#labels Phase-Implementation
 
 = Introduction =
 
@@ -32,3 +33,7 @@ Once you have instrumented some code in your application, grab a diff from your 
  # The string used in {{{push}}} matches the one in {{{pop}}}.
 
 This quick check before you compile/deploy will catch any dumb mistakes!
+
+= Conclusion =
+
+If you use other environments or have more tips, let me know!  Don't forget to check out GrokkingTips2 and AdvancedHatchUsage if you haven't already.
