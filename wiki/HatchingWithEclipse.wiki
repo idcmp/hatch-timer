@@ -21,4 +21,4 @@ Using *Ctrl-Click* and *Alt-Left* you can navigate in and out of the methods.  I
 || *Ctrl-Click* into a Method || Make Your Change || *Alt-Left* out of the Method ||
 || [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-ctrlclick.png] || [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-sum.png] || [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-arrows.png] ||
 
-* Note: Depending multiple *Alt-Left*s may be needed to get back to the previous method.
+ * Note: Depending multiple *Alt-Left*s may be needed to get back to the previous method.
