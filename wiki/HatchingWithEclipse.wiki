@@ -13,3 +13,12 @@ I assume you've added the necessary artifacts to your build path at this point.
 Eclipse will guess at types based on the acronym you enter.  Enter "*TSU*" and hit *Ctrl-Space* to save yourself needless keystrokes.
 
 ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-1.png] || becomes ||[http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-2.png] ||
+
+= Depth First Navigation =
+
+Using *Ctrl-Click* and *Alt-Left* you can navigate in and out of the methods.  If you're not used to using *Alt-Left* to navigate, this may take a few tries to perfect.
+
+|| Ctrl-Click into a Method || Make Your Change || Alt-Left out of the Method ||
+|| [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-ctrlclick.png] || [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-sum.png] || [http://hatch-timer.googlecode.com/svn/wiki/images/hatch-with-eclipse-arrows.png] ||
+
+* Note: Depending multiple *Alt-Left*s may be needed to get back to the previous method.
