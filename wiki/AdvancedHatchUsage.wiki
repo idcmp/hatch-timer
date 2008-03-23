@@ -49,6 +49,7 @@ Hatch includes a log4j metrics logger in the *hatch-log4j* artifact.  There are 
   <dependency>
     <groupId>org.linuxstuff.hatch</groupId>
     <artifactId>hatch-log4j</artifactId>
+    <!-- See http://hatch-timer.googlecode.com/ for current version -->
     <version>1.0-SNAPSHOT</version>
   </dependency>
 </dependencies>
