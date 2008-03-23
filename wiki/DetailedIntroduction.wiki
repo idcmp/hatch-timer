@@ -152,4 +152,4 @@ If you find problems with Hatch, please report them in the issue tracker.
 
 = Conclusion =
 
-Check out the AdvancedHatchUsage page for the last cool bits Hatch has to offer.
+Using Eclipse?  See the quick HatchingWithEclipse page, then check out the AdvancedHatchUsage page for the last cool bits Hatch has to offer.
