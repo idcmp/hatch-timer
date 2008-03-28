@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<project>
+  <body>
+    <links>
+      <item name="Hatch" href="http://code.google.com/p/hatch-timer/" />
+      <item name="Unreasonable Entertainment"
+        href="http://www.unreasonent.com/" />
+    </links>
+
+    <menu name="Hatch Spring-AOP">
+      <item name="Release Notes" href="release-notes.html" />
+    </menu>
+
+    <menu name="Examples">
+      <item name="Advising Classes" href="advising.html" />
+    </menu>
+
+    <menu ref="reports" />
+  </body>
+</project>

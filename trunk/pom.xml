@@ -38,12 +38,18 @@
     <module>hatch-core</module>
     <module>hatch-null</module>
     <module>hatch-log4j</module>
+    <module>hatch-spring</module>
   </modules>
   <developers>
     <developer>
       <id>idcmp</id>
       <name>JAmes Atwill</name>
       <email>jatwill@linuxstuff.org</email>
+    </developer>
+    <developer>
+      <id>angrybaldguy</id>
+      <name>Owen Jacobson</name>
+      <email>owen.jacobson@unreasonent.com</email>
     </developer>
   </developers>
   <build>
