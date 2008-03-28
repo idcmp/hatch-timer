@@ -17,83 +17,83 @@ import org.linuxstuff.hatch.aop.TimerStrategy;
 
 @RunWith(JMock.class)
 public class HatchInterceptorTest {
-  private final Mockery jmock = new JUnit4Mockery ();
+	private final Mockery jmock = new JUnit4Mockery();
 
-  @Test
-  public void successfulCall () throws Throwable {
-    HatchInterceptor interceptor = new HatchInterceptor ();
+	@Test
+	public void successfulCall() throws Throwable {
+		HatchInterceptor interceptor = new HatchInterceptor();
 
-    final ProceedingJoinPoint call = jmock.mock (ProceedingJoinPoint.class);
-    final TimerStrategy strategy = jmock.mock (TimerStrategy.class);
+		final ProceedingJoinPoint call = jmock.mock(ProceedingJoinPoint.class);
+		final TimerStrategy strategy = jmock.mock(TimerStrategy.class);
 
-    provideMockSignatureForJoinpoint (call);
+		provideMockSignatureForJoinpoint(call);
 
-    jmock.checking (new Expectations () {
-      {
-        Sequence calls = jmock.sequence ("sane-call-sequence");
-        one (strategy).push (with (any (String.class)));
-        inSequence (calls);
+		jmock.checking(new Expectations() {
+			{
+				Sequence calls = jmock.sequence("sane-call-sequence");
+				one(strategy).push(with(any(String.class)));
+				inSequence(calls);
 
-        one (call).proceed ();
-        inSequence (calls);
-        will (returnValue ("OK!"));
+				one(call).proceed();
+				inSequence(calls);
+				will(returnValue("OK!"));
 
-        one (strategy).pop (with (any (String.class)));
-        inSequence (calls);
-      }
-    });
+				one(strategy).pop(with(any(String.class)));
+				inSequence(calls);
+			}
+		});
 
-    interceptor.setTimerStrategy (strategy);
+		interceptor.setTimerStrategy(strategy);
 
-    assertEquals ("OK!", interceptor.timeMethod (call));
-  }
+		assertEquals("OK!", interceptor.timeMethod(call));
+	}
 
-  @Test
-  public void exceptionalCall () throws Throwable {
-    HatchInterceptor interceptor = new HatchInterceptor ();
+	@Test
+	public void exceptionalCall() throws Throwable {
+		HatchInterceptor interceptor = new HatchInterceptor();
 
-    final ProceedingJoinPoint call = jmock.mock (ProceedingJoinPoint.class);
-    final TimerStrategy strategy = jmock.mock (TimerStrategy.class);
+		final ProceedingJoinPoint call = jmock.mock(ProceedingJoinPoint.class);
+		final TimerStrategy strategy = jmock.mock(TimerStrategy.class);
 
-    provideMockSignatureForJoinpoint (call);
+		provideMockSignatureForJoinpoint(call);
 
-    final Exception expectedError = new Exception ("Boo.");
+		final Exception expectedError = new Exception("Boo.");
 
-    jmock.checking (new Expectations () {
-      {
-        Sequence calls = jmock.sequence ("sane-call-sequence");
-        one (strategy).push (with (any (String.class)));
-        inSequence (calls);
+		jmock.checking(new Expectations() {
+			{
+				Sequence calls = jmock.sequence("sane-call-sequence");
+				one(strategy).push(with(any(String.class)));
+				inSequence(calls);
 
-        one (call).proceed ();
-        inSequence (calls);
-        will (throwException (expectedError));
+				one(call).proceed();
+				inSequence(calls);
+				will(throwException(expectedError));
 
-        one (strategy).pop (with (any (String.class)));
-        inSequence (calls);
-      }
-    });
+				one(strategy).pop(with(any(String.class)));
+				inSequence(calls);
+			}
+		});
 
-    interceptor.setTimerStrategy (strategy);
+		interceptor.setTimerStrategy(strategy);
 
-    try {
-      interceptor.timeMethod (call);
-      fail ();
-    } catch (Exception e) {
-      assertEquals (expectedError, e);
-    }
-  }
+		try {
+			interceptor.timeMethod(call);
+			fail();
+		} catch (Exception e) {
+			assertEquals(expectedError, e);
+		}
+	}
 
-  private void provideMockSignatureForJoinpoint (final ProceedingJoinPoint call) {
-    jmock.checking (new Expectations () {
-      {
-        Signature signature = jmock.mock (Signature.class);
+	private void provideMockSignatureForJoinpoint(final ProceedingJoinPoint call) {
+		jmock.checking(new Expectations() {
+			{
+				Signature signature = jmock.mock(Signature.class);
 
-        allowing (call).getSignature ();
-        will (returnValue (signature));
+				allowing(call).getSignature();
+				will(returnValue(signature));
 
-        allowing (signature);
-      }
-    });
-  }
+				allowing(signature);
+			}
+		});
+	}
 }
