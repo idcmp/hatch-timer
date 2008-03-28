@@ -1,0 +1,59 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:aop="http://www.springframework.org/schema/aop"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+      http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+  <aop:config>
+    <aop:aspect ref="hatchStartTimer">
+      <aop:around
+        pointcut="execution (* com.unreasonent.hatch.integration.CallerBean.* (..))"
+        method="timeMethod" />
+    </aop:aspect>
+
+    <aop:aspect ref="hatchTimer">
+      <aop:around
+        pointcut="execution (* com.unreasonent.hatch.integration.IntegrationTestBean.* (..))"
+        method="timeMethod" />
+    </aop:aspect>
+  </aop:config>
+
+  <bean id="hatchStartTimer"
+    class="com.unreasonent.hatch.aop.HatchInterceptor">
+    <property name="timerStrategy">
+      <bean class="com.unreasonent.hatch.aop.EnablePopStrategy" />
+    </property>
+  </bean>
+
+  <bean id="hatchTimer"
+    class="com.unreasonent.hatch.aop.HatchInterceptor">
+    <property name="signatureTranslator">
+      <bean class="com.unreasonent.hatch.aop.MethodNameTranslator" />
+    </property>
+  </bean>
+
+  <bean id="integrationBean"
+    class="com.unreasonent.hatch.integration.CallerBean">
+    <property name="testBean" ref="fastBean" />
+  </bean>
+
+  <bean id="fastBean"
+    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    <property name="delay" value="10" />
+    <property name="next" ref="slowBean" />
+  </bean>
+
+  <bean id="slowBean"
+    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    <property name="delay" value="200" />
+    <property name="next" ref="obeseBean" />
+  </bean>
+
+  <bean id="obeseBean"
+    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    <property name="delay" value="700" />
+  </bean>
+
+</beans>
