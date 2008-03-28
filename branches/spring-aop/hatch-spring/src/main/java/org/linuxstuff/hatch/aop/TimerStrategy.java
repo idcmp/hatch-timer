@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.aop;
+package org.linuxstuff.hatch.aop;
 
 public interface TimerStrategy {
 

@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.aop;
+package org.linuxstuff.hatch.aop;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,6 +9,8 @@ import org.jmock.integration.junit4.JMock;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.linuxstuff.hatch.aop.FullSignatureTranslator;
+import org.linuxstuff.hatch.aop.MethodNameTranslator;
 
 @RunWith (JMock.class)
 public class SignatureTranslatorsTest {

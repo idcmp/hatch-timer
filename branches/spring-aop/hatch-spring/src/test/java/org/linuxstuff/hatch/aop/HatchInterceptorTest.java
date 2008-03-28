@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.aop;
+package org.linuxstuff.hatch.aop;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
@@ -12,6 +12,8 @@ import org.jmock.integration.junit4.JMock;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.linuxstuff.hatch.aop.HatchInterceptor;
+import org.linuxstuff.hatch.aop.TimerStrategy;
 
 @RunWith(JMock.class)
 public class HatchInterceptorTest {

@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.integration;
+package org.linuxstuff.hatch.integration;
 
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

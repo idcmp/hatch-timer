@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.aop;
+package org.linuxstuff.hatch.aop;
 
 import org.linuxstuff.hatch.TimerStackUtil;
 
@@ -11,7 +11,7 @@ public class PushPopStrategy implements TimerStrategy {
   /**
    * Delegates to {@link TimerStackUtil#pop(String)}.
    * 
-   * @see com.unreasonent.hatch.aop.TimerStrategy#pop(java.lang.String)
+   * @see org.linuxstuff.hatch.aop.TimerStrategy#pop(java.lang.String)
    */
   public void pop (String callName) {
     TimerStackUtil.pop (callName);
@@ -20,7 +20,7 @@ public class PushPopStrategy implements TimerStrategy {
   /**
    * Delegates to {@link TimerStackUtil#push(String)}.
    * 
-   * @see com.unreasonent.hatch.aop.TimerStrategy#push(java.lang.String)
+   * @see org.linuxstuff.hatch.aop.TimerStrategy#push(java.lang.String)
    */
   public void push (String callName) {
     TimerStackUtil.push (callName);
