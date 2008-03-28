@@ -94,4 +94,4 @@ You may notice these values do not sum up correctly. This means that 10ms are sp
 
 = Conclusion =
 
-I know that was pretty simple, but you now have a basic understanding of how to use Hatch.  If this seems interesting to you, see the DetailedIntroduction for more details and learn about how to use it on production code.  The HatchingWithEclipse page has some tips on saving you some time too!
+I know that was pretty simple, but you now have a basic understanding of how to use Hatch.  If this seems interesting to you, see the DetailedIntroduction for more details and learn about how to use it on production code.  The HatchingWithEclipse and SpringAop pages have some tips on saving you some time too!
