@@ -9,50 +9,50 @@
   <aop:config>
     <aop:aspect ref="hatchStartTimer">
       <aop:around
-        pointcut="execution (* com.unreasonent.hatch.integration.CallerBean.* (..))"
+        pointcut="execution (* org.linuxstuff.hatch.integration.CallerBean.* (..))"
         method="timeMethod" />
     </aop:aspect>
 
     <aop:aspect ref="hatchTimer">
       <aop:around
-        pointcut="execution (* com.unreasonent.hatch.integration.IntegrationTestBean.* (..))"
+        pointcut="execution (* org.linuxstuff.hatch.integration.IntegrationTestBean.* (..))"
         method="timeMethod" />
     </aop:aspect>
   </aop:config>
 
   <bean id="hatchStartTimer"
-    class="com.unreasonent.hatch.aop.HatchInterceptor">
+    class="org.linuxstuff.hatch.aop.HatchInterceptor">
     <property name="timerStrategy">
-      <bean class="com.unreasonent.hatch.aop.EnablePopStrategy" />
+      <bean class="org.linuxstuff.hatch.aop.EnablePopStrategy" />
     </property>
   </bean>
 
   <bean id="hatchTimer"
-    class="com.unreasonent.hatch.aop.HatchInterceptor">
+    class="org.linuxstuff.hatch.aop.HatchInterceptor">
     <property name="signatureTranslator">
-      <bean class="com.unreasonent.hatch.aop.MethodNameTranslator" />
+      <bean class="org.linuxstuff.hatch.aop.MethodNameTranslator" />
     </property>
   </bean>
 
   <bean id="integrationBean"
-    class="com.unreasonent.hatch.integration.CallerBean">
+    class="org.linuxstuff.hatch.integration.CallerBean">
     <property name="testBean" ref="fastBean" />
   </bean>
 
   <bean id="fastBean"
-    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    class="org.linuxstuff.hatch.integration.IntegrationTestBean">
     <property name="delay" value="10" />
     <property name="next" ref="slowBean" />
   </bean>
 
   <bean id="slowBean"
-    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    class="org.linuxstuff.hatch.integration.IntegrationTestBean">
     <property name="delay" value="200" />
     <property name="next" ref="obeseBean" />
   </bean>
 
   <bean id="obeseBean"
-    class="com.unreasonent.hatch.integration.IntegrationTestBean">
+    class="org.linuxstuff.hatch.integration.IntegrationTestBean">
     <property name="delay" value="700" />
   </bean>
 

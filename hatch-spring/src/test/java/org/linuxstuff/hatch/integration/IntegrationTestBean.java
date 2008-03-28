@@ -1,4 +1,4 @@
-package com.unreasonent.hatch.integration;
+package org.linuxstuff.hatch.integration;
 
 public class IntegrationTestBean {
   private int                 delay;
