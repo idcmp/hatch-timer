@@ -2,6 +2,8 @@
 
 = Hatch and Spring-AOP =
 
+For you propeller-heads who've been drinking the AOP kool-ade, the `hatch-spring` component allows you to insert Hatch timers into your class via Spring or aspectJ aspect injection.
+
 == Advising Classes ==
 
 Attaching hatch-timer to classes using Spring's AOP supprt is relatively straightforward. The integration test for this aspect is comprised of the following classes:
