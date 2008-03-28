@@ -8,7 +8,7 @@ import org.aspectj.lang.Signature;
  */
 public class FullSignatureTranslator implements SignatureTranslator {
 
-  public String nameCall (Signature signature) {
-    return signature.toLongString ();
-  }
+	public String nameCall(Signature signature) {
+		return signature.toLongString();
+	}
 }
