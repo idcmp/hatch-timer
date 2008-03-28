@@ -7,5 +7,5 @@ import org.aspectj.lang.Signature;
  * display or logging.
  */
 public interface SignatureTranslator {
-  public String nameCall (Signature signature);
+	public String nameCall(Signature signature);
 }

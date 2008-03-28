@@ -7,8 +7,8 @@ import org.aspectj.lang.Signature;
  */
 public class MethodNameTranslator implements SignatureTranslator {
 
-  public String nameCall (Signature signature) {
-    return signature.getName ();
-  }
+	public String nameCall(Signature signature) {
+		return signature.getName();
+	}
 
 }
