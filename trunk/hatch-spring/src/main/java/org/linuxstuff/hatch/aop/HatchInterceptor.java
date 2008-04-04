@@ -18,13 +18,12 @@ public class HatchInterceptor {
 	 * implementations of {@link SignatureTranslator} allow the application to
 	 * customise the Hatch output.
 	 * 
-	 * @param translator
-	 *            the call signature translator to use for subsequent timing.
+	 * @param translator the call signature translator to use for subsequent
+	 *            timing.
 	 */
 	public void setSignatureTranslator(SignatureTranslator translator) {
 		if (translator == null)
-			throw new IllegalArgumentException(
-					"Signature translator may not be null.");
+			throw new IllegalArgumentException("Signature translator may not be null.");
 		this.signatureTranslator = translator;
 	}
 
@@ -35,13 +34,11 @@ public class HatchInterceptor {
 	 * implementations can be used to fine-tune the way in which Hatch is
 	 * invoked, or to replace Hatch entirely with another call-timing tool.
 	 * 
-	 * @param timerStrategy
-	 *            the method-call timing strategy to use.
+	 * @param timerStrategy the method-call timing strategy to use.
 	 */
 	public void setTimerStrategy(TimerStrategy timerStrategy) {
 		if (timerStrategy == null)
-			throw new IllegalArgumentException(
-					"Timer strategy may not be null.");
+			throw new IllegalArgumentException("Timer strategy may not be null.");
 		this.timerStrategy = timerStrategy;
 	}
 
@@ -51,11 +48,9 @@ public class HatchInterceptor {
 	 * signature; after the method call completes, this calls
 	 * {@link #popTimer(String)} with the same translated signature.
 	 * 
-	 * @param call
-	 *            the method call to intercept.
+	 * @param call the method call to intercept.
 	 * @return the method call's return value, if any.
-	 * @throws Throwable
-	 *             the method call's thrown exception, if any.
+	 * @throws Throwable the method call's thrown exception, if any.
 	 * @see #setSignatureTranslator(SignatureTranslator)
 	 */
 	public Object timeMethod(ProceedingJoinPoint call) throws Throwable {

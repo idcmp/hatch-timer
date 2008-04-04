@@ -13,8 +13,7 @@ public class EnablePopStrategy extends PushPopStrategy implements TimerStrategy 
 	 * 
 	 * @see org.linuxstuff.hatch.aop.TimerStrategy#push(java.lang.String)
 	 */
-	@Override
-	public void push(String callName) {
+	@Override public void push(String callName) {
 		TimerStackUtil.enableAndPush(callName);
 	}
 
