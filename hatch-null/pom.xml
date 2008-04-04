@@ -10,15 +10,12 @@
   <artifactId>hatch-null</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Hatch: Null Implementation</name>
-  <description>
-		Hatch: A drop-in null implementation of Hatch to replace
-		hatch-core when needed.
-	</description>
+  <description>Hatch: A (mostly) drop-in null implementation of Hatch to
+  replace hatch-core when needed.</description>
   <dependencies>
     <dependency>
       <groupId>org.linuxstuff.hatch</groupId>
       <artifactId>hatch-common</artifactId>
-      <version>${version}</version>
     </dependency>
   </dependencies>
 </project>

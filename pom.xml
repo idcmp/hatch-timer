@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+ NOTE: export XMLLINT_FORMAT="  "   # two spaces
+ NOTE: Then use xmllint to reformat.
+-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.linuxstuff.hatch</groupId>
@@ -82,18 +86,35 @@
       </extension>
     </extensions>
   </build>
-
-
+  <!-- Common Dependencies across Hatch: child POMs must still declare
+  them as a dependency, but must not specify a version. -->
+    <dependencyManagement>
   <dependencies>
-
+    <dependency>
+      <groupId>org.linuxstuff.hatch</groupId>
+      <artifactId>hatch-common</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.linuxstuff.hatch</groupId>
+      <artifactId>hatch-core</artifactId>
+      <version>${pom.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>[1.2,2)</version>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <!-- Y'know, just a version that runs unit tests.. -->
-      <version>[3.8.0,5.0)</version>
+      <version>[4,5)</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
+    </dependencyManagement>
+
   <repositories>
     <!-- Repository for wagon-svn -->
     <repository>
