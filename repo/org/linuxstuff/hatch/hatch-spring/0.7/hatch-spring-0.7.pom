@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.linuxstuff.hatch</groupId>
+    <artifactId>hatch-parent</artifactId>
+    <version>0.7</version>
+  </parent>
+
+  <artifactId>hatch-spring</artifactId>
+
+  <name>Hatch: Spring-AOP Extension</name>
+
+  <description>
+    An interceptor for AspectJ and Spring-AOP allowing the use of
+    hatch-timer in AOP-enabled codebases.
+  </description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.linuxstuff.hatch</groupId>
+      <artifactId>hatch-core</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.5.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-context</artifactId>
+      <version>[2.5,2.6)</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-aop</artifactId>
+      <version>[2.5,2.6)</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>cglib</groupId>
+      <artifactId>cglib</artifactId>
+      <version>[2.1,3)</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Dependencies for testing -->
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock</artifactId>
+      <version>[2,3)</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.jmock</groupId>
+      <artifactId>jmock-junit4</artifactId>
+      <version>[2,3)</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
