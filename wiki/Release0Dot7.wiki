@@ -1,6 +1,6 @@
 #summary rXXX 03-April-2008
 #labels ReleaseNotes
 
- * Add Spring AOP support (see SpringAop) (Issue #11)
+ * Add Spring AOP support (see SpringAop) (Issue #12)
 
 Previous Release: Release0Dot6
